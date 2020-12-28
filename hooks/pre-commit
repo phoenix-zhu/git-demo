@@ -1,3 +1,9 @@
 #!/bin/bash
 
-! find . -type f -name '*.key' | grep -q "."
+FILES=$(find . -type f -name '*.key')
+
+if [[ ! -z ${FILES} ]]; then
+  echo "Found following key files!!!"
+  echo ${FILES}
+  exit 1
+fi
